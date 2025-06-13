@@ -1,0 +1,20 @@
+service: my-go-service
+
+deploy:
+  artifact: bin/hello.zip
+
+provider:
+  name: aws
+  runtime: go1.x
+  region: [xx-xxxx-xx]
+
+functions:
+  hello:
+    handler: bin/hello
+    events:
+      - http:
+          path: hello
+          method: get
+
+package:
+  artifact: bin/hello.zip
