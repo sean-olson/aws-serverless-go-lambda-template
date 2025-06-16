@@ -2,18 +2,25 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"encoding/json"
+
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-func handler(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+func handler(ctx context.Context) (events.APIGatewayProxyResponse, error){
+	
+	body, _ := json.Marshal(map[string]string{
+		"message": "Hello from Go Lambda!",
+	})
+
 	return events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       fmt.Sprintf("Hello, %s!", request.Path),
+		Body: string(body),
 	}, nil
-}
 
-func main() {
+}	
+
+func main(){
 	lambda.Start(handler)
 }
