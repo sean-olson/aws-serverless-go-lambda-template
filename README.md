@@ -1,4 +1,4 @@
-# aws-serverless-go-lambda-template
+# AWS Serverless Go Lambda Template
 A boilerplate Serverless Framework  application template for an AWS Lambda function written in **Go**.  It can be used to scaffold your serverless Go Lambda functions.  The Make file is configured with the necessary commands and variables to build a custom binary as well as a cleanup script.  Additionally, a Dockerfile is included to build a custom binary, based on the Amazon Linux, should glibc compatibility issues arrise.
 
 ## It Includes:
